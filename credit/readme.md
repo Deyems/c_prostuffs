@@ -45,27 +45,27 @@ In ```credit.c``` at right, write a program that prompts the user for a credit c
 Consider the below representative of how your own program should behave when passed a valid credit card number (sans hyphens).
 
 ```c
-    // $ ./credit
-    // Number: 4003600000000014
-    // VISA
+     $ ./credit
+     Number: 4003600000000014
+     VISA
 ```
 
 Now, get_long itself will reject hyphens (and more) anyway:
 
 ```c
-    // $ ./credit
-    // Number: 4003-6000-0000-0014
-    // Number: foo
-    // Number: 4003600000000014
-    // VISA
+    $ ./credit
+    Number: 4003-6000-0000-0014
+    Number: foo
+    Number: 4003600000000014
+    VISA
 ```
 
 But it’s up to you to catch inputs that are not credit card numbers (e.g., a phone number), even if numeric:
 
 ```c
-    // $ ./credit
-    // Number: 6176292929
-    // INVALID
+    $ ./credit
+    Number: 6176292929
+    INVALID
 ```
 
 Test out your program with a whole bunch of inputs, both valid and invalid. (We certainly will!) Here are a few card numbers that PayPal recommends for testing.
