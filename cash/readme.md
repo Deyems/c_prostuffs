@@ -1,14 +1,5 @@
 ```json
-   // code for coloring
-```
-```html
-   // code for coloring
-```
-```js
-   // code for coloring
-```
-```css
-   // code for coloring
+   // Writing my Code in C_Language
 ```
 When making change, odds are you want to minimize the number of coins you’re dispensing for each customer, lest you run out (or annoy the customer!). Fortunately, computer science has given cashiers everywhere ways to minimize numbers of coins due: greedy algorithms.
 
@@ -20,14 +11,65 @@ It turns out that this greedy approach (i.e., algorithm) is not only locally opt
 
 Implement, in cash.c at right, a program that first asks the user how much change is owed and then prints the minimum number of coins with which that change can be made.
 
-Use get_float to get the user’s input and printf to output your answer. Assume that the only coins available are quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).
-We ask that you use get_float so that you can handle dollars and cents, albeit sans dollar sign. In other words, if some customer is owed $9.75 (as in the case where a newspaper costs 25¢ but the customer pays with a $10 bill), assume that your program’s input will be 9.75 and not $9.75 or 975. However, if some customer is owed $9 exactly, assume that your program’s input will be 9.00 or just 9 but, again, not $9 or 900. Of course, by nature of floating-point values, your program will likely work with inputs like 9.0 and 9.000 as well; you need not worry about checking whether the user’s input is “formatted” like money should be.
-You need not try to check whether a user’s input is too large to fit in a float. Using get_float alone will ensure that the user’s input is indeed a floating-point (or integral) value but not that it is non-negative.
-If the user fails to provide a non-negative value, your program should re-prompt the user for a valid amount again and again until the user complies.
-So that we can automate some tests of your code, be sure that your program’s last line of output is only the minimum number of coins possible: an integer followed by \n.
-Beware the inherent imprecision of floating-point values. Recall floats.c from class, wherein, if x is 2, and y is 10, x / y is not precisely two tenths! And so, before making change, you’ll probably want to convert the user’s inputted dollars to cents (i.e., from a float to an int) to avoid tiny errors that might otherwise add up!
-Take care to round your cents to the nearest penny, as with round, which is declared in math.h. For instance, if dollars is a float with the user’s input (e.g., 0.20), then code like
+- Use get_float to get the user’s input and printf to output your answer. Assume that the only coins available are quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).
+    - We ask that you use get_float so that you can handle dollars and cents, albeit sans dollar sign. In other words, if some customer is owed $9.75 (as in the case where a newspaper costs 25¢ but the customer pays with a $10 bill), assume that your program’s input will be 9.75 and not $9.75 or 975. However, if some customer is owed $9 exactly, assume that your program’s input will be 9.00 or just 9 but, again, not $9 or 900. Of course, by nature of floating-point values, your program will likely work with inputs like 9.0 and 9.000 as well; you need not worry about checking whether the user’s input is “formatted” like money should be.
+- You need not try to check whether a user’s input is too large to fit in a float. Using get_float alone will ensure that the user’s input is indeed a floating-point (or integral) value but not that it is non-negative.
+- If the user fails to provide a non-negative value, your program should re-prompt the user for a valid amount again and again until the user complies.
+- So that we can automate some tests of your code, be sure that your program’s last line of output is only the minimum number of coins possible: an integer followed by \n.
+- Beware the inherent imprecision of floating-point values. Recall floats.c from class, wherein, if x is 2, and y is 10, x / y is not precisely two tenths! And so, before making change, you’ll probably want to convert the user’s inputted dollars to cents (i.e., from a float to an int) to avoid tiny errors that might otherwise add up!
+- Take care to round your cents to the nearest penny, as with round, which is declared in math.h. For instance, if dollars is a float with the user’s input (e.g., 0.20), then code like
 
-int coins = round(dollars * 100);
+```c
+   // int coins = round(dollars * 100);
+```
 will safely convert 0.20 (or even 0.200000002980232238769531250) to 20.
 
+Your program should behave per the examples below.
+
+```c
+    // $ ./cash
+    // Change owed: 0.41
+    // 4
+```
+
+```c
+    // $ ./cash
+    // Change owed: -0.41
+    // Change owed: foo
+    // Change owed: 0.41
+    // 4
+````
+
+```c
+    // Console Application Written
+    // #include <cs50.h>
+    // #include <math.h>
+    // #include <stdio.h>
+
+    // int main(void)
+    // {
+    //     float dollar;
+        
+    //     do
+    //     {
+    //     dollar = get_float("Change: ");
+    //     }while(dollar <= 0);
+
+    //     int coin = round(dollar*100);
+    //     int count=0; int remainder;
+    //     int coins[] = {25,10,5,1};
+    //     int arrloop = 0;
+    //     while(arrloop < 4){
+    //     count += floor(coin/coins[arrloop]);
+    //         remainder = coin % coins[arrloop];
+    //         if(remainder != 0){
+    //             coin = remainder;
+    //             arrloop++;
+    //         }else{
+    //             break;
+    //         }
+    //     }
+    //         printf("%i\n",count);
+    // }
+
+```
