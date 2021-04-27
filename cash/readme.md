@@ -20,56 +20,56 @@ Implement, in cash.c at right, a program that first asks the user how much chang
 - Take care to round your cents to the nearest penny, as with round, which is declared in math.h. For instance, if dollars is a float with the user’s input (e.g., 0.20), then code like
 
 ```c
-   // int coins = round(dollars * 100);
+   int coins = round(dollars * 100);
 ```
 will safely convert 0.20 (or even 0.200000002980232238769531250) to 20.
 
 Your program should behave per the examples below.
 
 ```c
-    // $ ./cash
-    // Change owed: 0.41
-    // 4
+    $ ./cash
+    Change owed: 0.41
+    4
 ```
 
 ```c
-    // $ ./cash
-    // Change owed: -0.41
-    // Change owed: foo
-    // Change owed: 0.41
-    // 4
+    $ ./cash
+    Change owed: -0.41
+    Change owed: foo
+    Change owed: 0.41
+    4
 ````
 
 ```c
-    // Console Application Written
-    // #include <cs50.h>
-    // #include <math.h>
-    // #include <stdio.h>
+    Console Application Written
+    #include <cs50.h>
+    #include <math.h>
+    #include <stdio.h>
 
-    // int main(void)
-    // {
-    //     float dollar;
+    int main(void)
+    {
+        float dollar;
         
-    //     do
-    //     {
-    //     dollar = get_float("Change: ");
-    //     }while(dollar <= 0);
+        do
+        {
+        dollar = get_float("Change: ");
+        }while(dollar <= 0);
 
-    //     int coin = round(dollar*100);
-    //     int count=0; int remainder;
-    //     int coins[] = {25,10,5,1};
-    //     int arrloop = 0;
-    //     while(arrloop < 4){
-    //     count += floor(coin/coins[arrloop]);
-    //         remainder = coin % coins[arrloop];
-    //         if(remainder != 0){
-    //             coin = remainder;
-    //             arrloop++;
-    //         }else{
-    //             break;
-    //         }
-    //     }
-    //         printf("%i\n",count);
-    // }
+        int coin = round(dollar*100);
+        int count=0; int remainder;
+        int coins[] = {25,10,5,1};
+        int arrloop = 0;
+        while(arrloop < 4){
+        count += floor(coin/coins[arrloop]);
+            remainder = coin % coins[arrloop];
+            if(remainder != 0){
+                coin = remainder;
+                arrloop++;
+            }else{
+                break;
+            }
+        }
+            printf("%i\n",count);
+    }
 
 ```
